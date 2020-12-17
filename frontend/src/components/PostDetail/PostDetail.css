@@ -1,0 +1,33 @@
+.divider {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid rgb(219, 213, 213);
+}
+
+.add-comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+}
+
+.add-comment-form input {
+  font-family: inherit;
+  box-sizing: border-box;
+  padding: 8px;
+  margin: 0 20px;
+}
+
+.comment-button {
+  cursor: pointer;
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 5px 8px;
+  margin-left: 20px;
+  margin-top: 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--primary);
+  color: white;
+}

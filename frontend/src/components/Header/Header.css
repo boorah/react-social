@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.navbar__icons {
+  display: flex;
+}
+
+.navbar__icons img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.navbar__logo {
+  font-size: 35px;
+  text-align: center;
+}

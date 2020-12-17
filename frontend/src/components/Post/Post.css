@@ -1,0 +1,51 @@
+.post {
+  display: flex;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.post__avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.post__avatar img {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.post__more {
+  font-size: 14px;
+}
+
+.post__username {
+  color: gray;
+  margin: 0 10px;
+}
+
+.post__date {
+  color: gray;
+}
+
+.post__content {
+  margin: 5px 0;
+}
+
+.post__options {
+  display: flex;
+}
+
+.post__options img {
+  height: 20px;
+  width: 20px;
+}
+
+.post__comment, .post__like {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-right: 10px;
+}

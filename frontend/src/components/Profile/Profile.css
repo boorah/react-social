@@ -1,0 +1,58 @@
+.profile {
+  margin-top: 30px;
+}
+.profile__info {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.profile__avatar {
+  height: 100px;
+  width: 100px;
+}
+
+.profile__avatar img {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.profile__more {
+  flex-grow: 1;
+}
+
+.profile__user {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__name {
+  font-weight: bold;
+}
+
+.profile__join-date {
+  color: gray;
+  font-size: 14px;
+}
+
+.profile__stats {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+}
+
+.profile__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.count {
+  font-weight: bold;
+}
+
+.profile__about {
+  margin: 20px 10px;
+  font-size: 14px;
+}

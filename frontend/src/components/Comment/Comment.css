@@ -1,0 +1,17 @@
+.comment {
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.comment__user {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.comment__username {
+  color: gray;
+}
+
+.comment__content {
+  margin-top: 5px;
+}

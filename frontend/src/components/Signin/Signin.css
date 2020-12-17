@@ -1,0 +1,82 @@
+.container {
+  width: 80%;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signin-form__redirect {
+  font-size: 15px;
+  align-self: start;
+  margin-bottom: 30px;
+}
+
+.signin-form__redirect span {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary);
+  margin-left: 4px;
+}
+
+.error-message {
+  color: red;
+  align-self: flex-start;
+}
+
+.signin-btn {
+  font-size: 15px;
+  font-family: inherit;
+  transition-duration: .3s;
+  cursor: pointer;
+  color: var(--primary);
+  margin: 20px 0;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+}
+
+.signin-btn:hover {
+  transition-duration: .3s;
+  color: white;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+}
+
+label {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.signin-form input {
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px solid var(--primary);
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px;
+  display: block;
+  font-size: 18px;
+}
+
+.signin-form input:focus {
+  background-color: rgb(233, 231, 231);
+}
+
+@media (min-width: 800px) {
+  .container {
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+
+  }
+}
