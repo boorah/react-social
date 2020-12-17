@@ -8,9 +8,7 @@ const createUser = async (request, response, next) => {
 
     // If there's no password field
     if (!body.password)
-      return response.status(400).json({
-        message: "Password is required"
-      });
+      return next({ statusCode: 400, message: "Password is required" });
 
     // Generate password hash
     const saltRounds = 10;
@@ -28,8 +26,8 @@ const createUser = async (request, response, next) => {
     const savedUser = await user.save();
 
     response.status(201).json(savedUser);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -38,17 +36,17 @@ const authUser = async (request, response, next) => {
     const body = request.body;
 
     // Find the user with the given email
-    const user = await User.findOne({email: body.email});
+    const user = await User.findOne({email: body.email}).select("-followers -following");
 
     // If the user doesn't exists
     if (!user)
-      return response.status(404).json({message: "user doesn't exists"});
+      return next({statusCode: 404, message: "User doesn't exist"});
     
     const passwordMatch = await bcrypt.compare(body.password, user.passwordHash);
 
     // If the password doesn't match
     if (!passwordMatch)
-      return response.status(401).json({message: "invalid password"});
+      return next({ statusCode: 401, message: "Invalid password" });
     
     // Generate token
 
@@ -61,7 +59,7 @@ const authUser = async (request, response, next) => {
 
     response.status(200).json({
       token,
-      user
+      details: user
     });
 
   } catch (error) {

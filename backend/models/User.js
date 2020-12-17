@@ -4,12 +4,12 @@ const uniqueValidator = require("mongoose-unique-validator");
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
+    required: [true, "Email is required"],
     unique: true
   },
   name: {
     type: String,
-    required: true
+    required: [true, "Name is required"]
   },
   passwordHash: {
     type: String,
@@ -17,12 +17,30 @@ const userSchema = new mongoose.Schema({
   },
   username: {
     type: String,
-    required: true,
+    required: [true, "Username is required"],
     unique: true
-  }
+  },
+  about: {
+    type: String,
+    default: ""
+  },
+  likedPosts: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Post"
+  },
+  followers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+    }
+  ],
+  following: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+    }
+  ]
 });
 
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator, { message: "{PATH} needs to be unique" });
 
 userSchema.set("toJSON", { 
   transform: (document, returnedObject) => {
