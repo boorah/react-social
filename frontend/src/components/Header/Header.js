@@ -25,7 +25,7 @@ export default function Header() {
     <header>
       <nav className={classes.navbar}>
         <Link to="/" className={classes.navbarLink}>
-          <h1 className={classes.navbarLogo}>react.social</h1>
+          <h1 className={classes.navbarLogo}>react-social</h1>
         </Link>
         {
           !user ? null :
