@@ -1,6 +1,7 @@
 # react-social
 
-A fullstack social media web app with basic features.
+A fullstack social media web app with basic features.  
+Inspired by [@manikandanraji's](https://github.com/manikandanraji) instagram clone
 
 ## Technologies used
 
