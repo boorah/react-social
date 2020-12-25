@@ -11,10 +11,7 @@ export default function App() {
 
   const { user, setUser } = useContext(UserContext);
 
-  console.log("App.js rendered!", user);
-
   useEffect(() => {
-    console.log("App.js, useEffect");
     const result = window.localStorage.getItem("loggedInUser");
 
     // If the user is already logged in, details are present in localStorage
@@ -23,15 +20,16 @@ export default function App() {
 
       const parsed = JSON.parse(result);
       setUser(parsed.details);
+
     }
 
   }, [setUser]);
 
   return (
-    <>
+    <div className="container">
       <Header />
-      { user ? <Routing /> : <Auth />}
+      {user ? <Routing /> : <Auth />}
       <Footer />
-    </>
+    </div >
   );
 }

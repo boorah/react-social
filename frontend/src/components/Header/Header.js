@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import User from "../../assets/user-profile.png";
 import Logout from "../../assets/logout.png";
 import Exlpore from "../../assets/explore.png";
-import "./Header.css";
+import classes from "./Header.module.css";
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
+  const history = useHistory();
 
   const handleLogout = () => {
     
     // remove from localStorage
     window.localStorage.removeItem("loggedInUser");
+
+    history.push("/");
 
     setUser(null);
 
@@ -19,13 +23,16 @@ export default function Header() {
 
   return (
     <header>
-      <nav className="navbar">
-        <Link to="/" className="navbar__link">
-          <h1 className="navbar__logo">react.social</h1>
+      <nav className={classes.navbar}>
+        <Link to="/" className={classes.navbarLink}>
+          <h1 className={classes.navbarLogo}>react.social</h1>
         </Link>
         {
           !user ? null :
-            <div className="navbar__icons">
+            <div className={classes.navbarIcons}>
+              <Link to={`/profile/${user.username}`}>
+                <img src={User} alt="user-icon" />
+              </Link>
               <Link to="/explore">
                 <img src={Exlpore} alt="explore-icon" />
               </Link>

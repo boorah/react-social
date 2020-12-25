@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import userService from "../../services/userService";
-import "./Signup.css";
+import classes from "./Signup.module.css";
 
 export default function Signup({ setSignin }) {
 
-  const [errorList, setErrorList] = useState([]);
+  const [error, setError] = useState("");
 
   const toggleSignin = () => {
     setSignin(true);
@@ -27,33 +27,30 @@ export default function Signup({ setSignin }) {
         password
       };
 
-      const response = await userService.createUser(user);
-      console.log(response);
+      await userService.createUser(user);
 
       // render signin screen
       toggleSignin(true);
 
     } catch(error) {
-      console.log(error.response);
-      const index = error.response.data.indexOf(":");
-      const errors = error.response.data.slice(index+1).split(",");
-      setErrorList(errors);
+      console.log(error);
+      setError(error.response.data.message);
     }
 
   };
 
   return (
-    <div className="container">
-      <form className="signup-form" onSubmit={handleSignup}>
+    <div className={classes.container}>
+      <form className={classes.form} onSubmit={handleSignup}>
         <label>
           Name
           <br />
-          <input name="name" type="text" placeholder="John Doe"/>
+          <input name="name" type="text" placeholder="John Doe" required/>
         </label>
         <label>
           Username
           <br />
-          <input name="username" type="text" placeholder="john12"/>
+          <input name="username" type="text" placeholder="john12" required/>
         </label>
         <label>
           Email
@@ -63,16 +60,16 @@ export default function Signup({ setSignin }) {
         <label>
           Password
           <br />
-          <input name="password" type="password" placeholder="Minimum 8 chars"/>
+          <input name="password" type="password" placeholder="Minimum 8 characters" required/>
         </label>
-        <span className="signup-form__redirect">
+        <span className={classes.redirect}>
           Already have an account?
           <span onClick={toggleSignin}>Signin</span>
         </span>
         {
-          errorList.map((error, index) => <p key={index} className="error-message">{error}</p>)
+          error ? <span className={classes.errorMessage}>{error}</span> : null
         }
-        <button className="signup-btn">
+        <button className={classes.formBtn}>
           Create
         </button>
       </form>

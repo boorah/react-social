@@ -5,31 +5,31 @@
   padding: 30px;
 }
 
-.signin-form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.signin-form__redirect {
+.redirect {
   font-size: 15px;
   align-self: start;
   margin-bottom: 30px;
 }
 
-.signin-form__redirect span {
+.redirect span {
   cursor: pointer;
   text-decoration: none;
   color: var(--primary);
   margin-left: 4px;
 }
 
-.error-message {
+.errorMessage {
   color: red;
   align-self: flex-start;
 }
 
-.signin-btn {
+.formBtn {
   font-size: 15px;
   font-family: inherit;
   transition-duration: .3s;
@@ -42,20 +42,20 @@
   border: 1px solid var(--primary);
 }
 
-.signin-btn:hover {
+.formBtn:hover {
   transition-duration: .3s;
   color: white;
   border: 1px solid var(--primary);
   background-color: var(--primary);
 }
 
-label {
+.form label {
   width: 100%;
   font-size: 20px;
   margin-bottom: 20px;
 }
 
-.signin-form input {
+.form input {
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
@@ -68,15 +68,14 @@ label {
   font-size: 18px;
 }
 
-.signin-form input:focus {
+.form input:focus {
   background-color: rgb(233, 231, 231);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   .container {
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     background-color: white;
-
   }
 }

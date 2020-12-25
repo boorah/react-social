@@ -1,0 +1,84 @@
+.container {
+  margin: 0 20px;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.upload input[type="file"] {
+  display: none;
+}
+
+.uploadButton,
+.updateButton,
+.cancelButton {
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  background: var(--primary);
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+}
+
+.cancelButton {
+  background: #6D6C6E;
+}
+
+.form {
+  display: flex;
+  max-width: 560px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form label {
+  margin-bottom: 20px;
+}
+
+.form .input {
+  padding: 5px;
+  font-size: 20px;
+  font-family: inherit;
+  margin-top: 5px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+
+.options {
+  align-self: flex-end;
+}
+
+.options button {
+  margin-left: 10px;
+}
+
+.form textarea {
+  resize: none;
+  font-size: 14px;
+  padding: 5px;
+  height: 100px;
+}
+
+.updateMessage {
+  margin-top: 50px;
+  text-align: center;
+  color: var(--primary);
+}

@@ -1,24 +1,17 @@
-.divider {
-  box-sizing: border-box;
-  width: 90%;
-  margin: 20px auto;
-  border: 1px solid rgb(219, 213, 213);
-}
-
-.add-comment-form {
+.commentForm {
   display: flex;
   flex-direction: column;
   margin-top: 18px;
 }
 
-.add-comment-form input {
+.commentForm input {
   font-family: inherit;
   box-sizing: border-box;
   padding: 8px;
   margin: 0 20px;
 }
 
-.comment-button {
+.commentButton {
   cursor: pointer;
   align-self: flex-start;
   font-family: inherit;
@@ -30,4 +23,15 @@
   border: none;
   background: var(--primary);
   color: white;
+}
+
+@media (min-width: 560px) {
+
+  .commentForm input {
+    font-size: 16px;
+  }
+
+  .commentButton {
+    font-size: 16px;
+  }
 }

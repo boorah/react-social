@@ -1,34 +1,72 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import UserIcon from "../../assets/man.png";
 import CommentIcon from "../../assets/comment.png";
 import HeartIcon from "../../assets/heart.png";
-import "./Post.css";
+import LikedIcon from "../../assets/heart-red.png";
+import postService from "../../services/postService";
+import classes from "./Post.module.css";
 
-export default function Post() {
+
+export default function Post({ post, updatePosts, isDetails }) {
+  const { name, username, avatarUrl } = post.createdBy;
+  const { id, isLiked, date, likes, comments, content } = post;
+  const parsedDate = new Date(date).toLocaleString("default", { month: "short", day: "numeric" });
+  
+  const linkStyle = {
+    textDecoration: "none",
+    color: "black"
+  };
+
+  const handleLike = async () => {
+
+    try {
+      const response = await postService.toggleLike(id, isLiked);
+
+      updatePosts(id, {
+        ...response,
+        isLiked: !isLiked
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
   return (
-    <div className="post">
-      <div className="post__avatar">
-        <img src={UserIcon} alt="user-avatar" />
+    <div className={classes.post}>
+      <div className={classes.postAvatar}>
+        <img src={!avatarUrl ? UserIcon : avatarUrl} alt="user-avatar" />
       </div>
-      <div className="post__more">
-        <div className="post__info">
-          <span className="post__user">John Doe</span>
-          <span className="post__username">@john12</span>
-          <span className="post__date">Dec 14</span>
+      <div className={classes.postMore}>
+        <div className={classes.postInfo}>
+          <Link to={`/profile/${username}`} style={linkStyle}>
+            <span className={classes.postUser}>{name}</span>
+          </Link>
+          <span className={classes.postUsername}>@{username}</span>
+          <span className={classes.postDate}>{parsedDate}</span>
         </div>
-        <div className="post__content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni exercitationem quidem quibusdam repellendus cum ullam modi harum, veniam dolor. Architecto!
+        <div className={classes.postContent}>
+          {content}
         </div>
-        <div className="post__options">
-          <div className="post__comment">
-            <img src={CommentIcon} alt="comment-icon"/>
-            <span className="comment-count">10</span>
-          </div>
-          <div className="post__like">
-            <img src={HeartIcon} alt="heart-icon"/>
-            <span className="like-count">12</span>
-          </div>
-        </div>
+        {
+          !isDetails ?
+            <div className={classes.postOptions}>
+              <div className={classes.postComment}>
+                <Link to={`/posts/${id}`}>
+                  <img src={CommentIcon} alt="comment-icon" />
+                </Link>
+                <span className={classes.count}>{comments.length}</span>
+              </div>
+              <div className={classes.postLike}>
+                {/* handleLike can be undefined */}
+                <img src={isLiked ? LikedIcon : HeartIcon} alt="heart-icon" onClick={updatePosts ? handleLike : updatePosts} />
+                <span className={classes.count}>{likes}</span>
+              </div>
+            </div>
+            : null
+        }
       </div>
     </div>
   );

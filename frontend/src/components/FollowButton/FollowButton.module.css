@@ -1,0 +1,21 @@
+.follow {
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  align-self: center;
+}
+
+.following {
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 14px;
+  padding: 5px 8px;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  background: none;
+  align-self: center;
+}

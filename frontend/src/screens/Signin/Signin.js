@@ -1,13 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import userService from "../../services/userService";
-import "./Signin.css";
+import classes from "./Signin.module.css";
 
 export default function Signin({ setSignin }) {
   const [errorMessage, setErrorMessage] = useState("");
   const { setUser } = useContext(UserContext);
-
-  console.log("Signin.js render");
 
   const toggleSignin = () => {
     setSignin(false);
@@ -43,8 +41,8 @@ export default function Signin({ setSignin }) {
   };
 
   return (
-    <div className="container">
-      <form className="signin-form" onSubmit={handleSignin}>
+    <div className={classes.container}>
+      <form className={classes.form} onSubmit={handleSignin}>
         <label>
           Email
           <br />
@@ -53,14 +51,14 @@ export default function Signin({ setSignin }) {
         <label>
           Password
           <br />
-          <input name="password" type="password" placeholder="Password" />
+          <input name="password" type="password" placeholder="Password" required/>
         </label>
-        <span className="signin-form__redirect">
+        <span className={classes.redirect}>
           Don't have an account?
           <span onClick={toggleSignin}>Create one</span>
         </span>
-        <span className="error-message">{errorMessage}</span>
-        <button className="signin-btn">
+        <span className={classes.errorMessage}>{errorMessage}</span>
+        <button className={classes.formBtn}>
           Login
         </button>
       </form>

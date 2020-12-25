@@ -7,7 +7,23 @@
   padding: 0;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
-  /* background-color: rgb(248, 239, 239); */
+}
+
+.container {
+  max-width: 700px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.divider {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid rgb(219, 213, 213);
 }

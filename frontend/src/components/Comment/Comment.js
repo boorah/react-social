@@ -1,15 +1,15 @@
 import React from "react";
-import "./Comment.css";
+import classes from "./Comment.module.css";
 
-export default function Comment() {
+export default function Comment({ createdBy, content }) {
   return (
-    <div className="comment">
-      <div className="comment__info">
-        <span className="comment__user">Maria</span>
-        <span className="comment__username">@maria</span>
+    <div className={classes.comment}>
+      <div>
+        <span className={classes.commentUser}>{ createdBy.name }</span>
+        <span className={classes.commentUsername}>@{ createdBy.username }</span>
       </div>
-      <div className="comment__content">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia dolor quos commodi officiis omnis perferendis tempore qui quibusdam vitae dolorum!
+      <div className={classes.commentContent}>
+        { content }
       </div>
     </div>
   );
